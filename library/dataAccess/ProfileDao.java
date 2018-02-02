@@ -1,5 +1,6 @@
 package library.dataAccess;
 
+import library.applicationLogic.ProfileManager;
 import library.domain.Profile;
 
 import java.sql.ResultSet;
@@ -10,11 +11,12 @@ public class ProfileDao {
 
     public ProfileDao(DatabaseConnection connection) {
         this.connection = connection;
+
     }
 
     public ArrayList<Profile> readProfiles(){
         ArrayList<Profile> profiles = new ArrayList<>();
-        ResultSet rs = connection.executeSql("SELECT * FROM Profielen");
+        ResultSet rs = connection.executeSql("SELECT * FROM Profiel");
 
         try{
             while(rs.next()){
@@ -23,7 +25,7 @@ public class ProfileDao {
         } catch (Exception e){
             System.out.println("Database doesn't contain profiles");
         }
-
+//        ProfileManager profileManager = new ProfileManager(profiles);
         return profiles;
     }
 }

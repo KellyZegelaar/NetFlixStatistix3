@@ -17,6 +17,8 @@ public class Main {
         //this creates the databaseconnection
         DatabaseConnection connection = new DatabaseConnection();
         connection.connectDatabase("jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=NetflixStatistix;integratedSecurity=true;");
+
+        
     }
 
 }
