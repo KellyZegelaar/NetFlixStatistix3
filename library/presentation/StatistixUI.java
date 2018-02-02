@@ -28,10 +28,42 @@ public class StatistixUI implements Runnable {
     private void createComponents(Container container){
         container.setLayout(new BorderLayout());
 
+        container.add(createChooseAccount(), BorderLayout.NORTH);
         container.add(createBottomApp(), BorderLayout.SOUTH);
     }
 
+    private JMenuBar createChooseAccount(){
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("View");
 
+        ButtonGroup options = new ButtonGroup();
+
+        JRadioButton account1 = new JRadioButton("Account - Kelly");
+        JRadioButton account2 = new JRadioButton("Account - Ingeborg");
+        JRadioButton account3 = new JRadioButton("Account - Karel");
+
+        JRadioButton movies = new JRadioButton("Show all movies");
+        JRadioButton series = new JRadioButton("Show all tv shows");
+        JRadioButton statistix = new JRadioButton("Show statistix");
+
+        options.add(account1);
+        options.add(account2);
+        options.add(account3);
+        options.add(movies);
+        options.add(series);
+        options.add(statistix);
+
+        menu.add(account1);
+        menu.add(account2);
+        menu.add(account3);
+        menu.addSeparator();
+        menu.add(movies);
+        menu.add(series);
+        menu.add(statistix);
+
+        menuBar.add(menu);
+        return menuBar;
+    }
 
     //this creates the textline at the end of the app
     private JPanel createBottomApp(){
