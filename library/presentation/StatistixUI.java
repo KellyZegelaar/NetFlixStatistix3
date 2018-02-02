@@ -9,6 +9,7 @@ import java.awt.*;
 
 public class StatistixUI implements Runnable {
     private JFrame frame;
+    private JTextField accountInfo;
 
     @Override
     public void run() {
@@ -27,24 +28,10 @@ public class StatistixUI implements Runnable {
     private void createComponents(Container container){
         container.setLayout(new BorderLayout());
 
-        container.add(createChooseAccount(), BorderLayout.NORTH);
-        container.add(new JPanel(), BorderLayout.CENTER);
         container.add(createBottomApp(), BorderLayout.SOUTH);
     }
 
-    private JTabbedPane createChooseAccount(){
-        JTabbedPane tabbedPane = new JTabbedPane();
 
-        tabbedPane.addTab("Kelly", createOverview());
-
-        return tabbedPane;
-    }
-
-    private JPanel createOverview(){
-        JPanel panel = new JPanel();
-
-        return panel;
-    }
 
     //this creates the textline at the end of the app
     private JPanel createBottomApp(){
