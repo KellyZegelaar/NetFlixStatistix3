@@ -6,10 +6,11 @@ package library.presentation;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class StatistixUI implements Runnable {
     private JFrame frame;
-    private JTextField accountInfo;
+    private JTextField infoPanel;
 
     @Override
     public void run() {
@@ -28,12 +29,22 @@ public class StatistixUI implements Runnable {
     private void createComponents(Container container){
         container.setLayout(new BorderLayout());
 
-        container.add(createChooseAccount(), BorderLayout.NORTH);
+        infoPanel = new JTextField();
+        infoPanel.setEditable(false);
+
+        container.add(createMenuBar(), BorderLayout.NORTH);
+        container.add(infoPanel, BorderLayout.CENTER);
         container.add(createBottomApp(), BorderLayout.SOUTH);
     }
 
-    private JMenuBar createChooseAccount(){
+    private JMenuBar createMenuBar(){
         JMenuBar menuBar = new JMenuBar();
+
+        menuBar.add(createViewMenu());
+        return menuBar;
+    }
+
+    private JMenu createViewMenu(){
         JMenu menu = new JMenu("View");
 
         ButtonGroup options = new ButtonGroup();
@@ -45,6 +56,21 @@ public class StatistixUI implements Runnable {
         JRadioButton movies = new JRadioButton("Show all movies");
         JRadioButton series = new JRadioButton("Show all tv shows");
         JRadioButton statistix = new JRadioButton("Show statistix");
+
+        ActionListenerViewMenu actionListenerViewMenu = new ActionListenerViewMenu(options,infoPanel);
+        account1.addActionListener(actionListenerViewMenu);
+        account2.addActionListener(actionListenerViewMenu);
+        account3.addActionListener(actionListenerViewMenu);
+        movies.addActionListener(actionListenerViewMenu);
+        series.addActionListener(actionListenerViewMenu);
+        statistix.addActionListener(actionListenerViewMenu);
+
+        account1.setActionCommand(account1.getText());
+        account2.setActionCommand(account2.getText());
+        account3.setActionCommand(account3.getText());
+        movies.setActionCommand(movies.getText());
+        series.setActionCommand(series.getText());
+        statistix.setActionCommand(statistix.getText());
 
         options.add(account1);
         options.add(account2);
@@ -61,8 +87,9 @@ public class StatistixUI implements Runnable {
         menu.add(series);
         menu.add(statistix);
 
-        menuBar.add(menu);
-        return menuBar;
+
+
+        return menu;
     }
 
     //this creates the textline at the end of the app
