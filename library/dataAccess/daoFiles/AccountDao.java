@@ -7,13 +7,14 @@ import library.domain.Address;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class AccountDao {
+public class AccountDao implements AccountDaoInf {
     private DatabaseConnection connection;
 
     public AccountDao(DatabaseConnection connection) {
         this.connection = connection;
     }
 
+    @Override
     public ArrayList<Account> readAccounts(){
         ArrayList<Account> accounts = new ArrayList<>();
         ResultSet rs = connection.executeSql("SELECT * FROM Account");

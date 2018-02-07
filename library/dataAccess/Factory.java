@@ -1,8 +1,6 @@
 package library.dataAccess;
 
-import library.dataAccess.daoFiles.AccountDao;
-import library.dataAccess.daoFiles.ProfileDao;
-import library.dataAccess.daoFiles.ProfileDaoInf;
+import library.dataAccess.daoFiles.*;
 
 public class Factory {
     private DatabaseConnection connection;
@@ -16,8 +14,13 @@ public class Factory {
         return profileDaoInf;
     }
 
-    public AccountDao createAccountDao(){
-        AccountDao accountDao = new AccountDao(connection);
-        return accountDao;
+    public AccountDaoInf createAccountDao(){
+        AccountDaoInf accountDaoInf = new AccountDao(connection);
+        return accountDaoInf;
+    }
+
+    public SerieDao createSerieDao(){
+        SerieDao serieDao = new SerieDao(connection);
+        return serieDao;
     }
 }

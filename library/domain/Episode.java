@@ -14,4 +14,8 @@ public class Episode {
         this.title = title;
         this.timeLength = timeLength;
     }
+
+    public Serie getSerie() {
+        return serie;
+    }
 }
