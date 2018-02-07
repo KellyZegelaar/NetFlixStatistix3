@@ -28,4 +28,9 @@ public class Factory {
         EpisodeDaoInf episodeDaoInf = new EpisodeDao(connection);
         return episodeDaoInf;
     }
+
+    public MovieDaoInf createMovieDao(){
+        MovieDaoInf movieDaoInf = new MovieDao(connection);
+        return movieDaoInf;
+    }
 }
