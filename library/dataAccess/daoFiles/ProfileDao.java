@@ -1,11 +1,12 @@
-package library.dataAccess;
+package library.dataAccess.daoFiles;
 
+import library.dataAccess.DatabaseConnection;
 import library.domain.Profile;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class ProfileDao {
+public class ProfileDao implements ProfileDaoInf {
     private DatabaseConnection connection;
 
     public ProfileDao(DatabaseConnection connection) {
@@ -13,6 +14,7 @@ public class ProfileDao {
 
     }
 
+    @Override
     public ArrayList<Profile> readProfiles(){
         ArrayList<Profile> profiles = new ArrayList<>();
         ResultSet rs = connection.executeSql("SELECT * FROM Profiel");

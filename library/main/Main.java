@@ -3,7 +3,6 @@ package library.main;
 import library.applicationLogic.AccountManager;
 import library.dataAccess.DatabaseConnection;
 import library.dataAccess.Factory;
-import library.dataAccess.ProfileDao;
 import library.presentation.StatistixUI;
 
 import javax.swing.SwingUtilities;
@@ -20,6 +19,7 @@ public class Main {
         AccountManager accountManager = new AccountManager(factory);
 
         StatistixUI ui = new StatistixUI(accountManager);
+        System.out.println(accountManager);
         SwingUtilities.invokeLater(ui);
 
 

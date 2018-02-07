@@ -1,5 +1,6 @@
-package library.dataAccess;
+package library.dataAccess.daoFiles;
 
+import library.dataAccess.DatabaseConnection;
 import library.domain.Account;
 import library.domain.Address;
 

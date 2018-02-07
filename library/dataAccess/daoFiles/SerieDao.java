@@ -1,4 +1,6 @@
-package library.dataAccess;
+package library.dataAccess.daoFiles;
+
+import library.dataAccess.DatabaseConnection;
 
 public class SerieDao {
     private DatabaseConnection connection;
