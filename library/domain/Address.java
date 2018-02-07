@@ -12,4 +12,14 @@ public class Address {
         this.postalCode = postalCode;
         this.houseNumber = houseNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", houseNumber='" + houseNumber + '\'' +
+                '}';
+    }
 }

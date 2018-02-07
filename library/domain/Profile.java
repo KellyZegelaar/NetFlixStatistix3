@@ -10,4 +10,17 @@ public class Profile {
         this.dateOfBirth = dateOfBirth;
         this.subscriberNumber = subscriberNumber;
     }
+
+    public String getSubscriberNumber() {
+        return subscriberNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "profileName='" + profileName + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", subscriberNumber='" + subscriberNumber + '\'' +
+                '}';
+    }
 }

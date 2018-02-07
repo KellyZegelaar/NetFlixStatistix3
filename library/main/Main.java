@@ -1,5 +1,6 @@
 package library.main;
 
+import library.applicationLogic.AccountManager;
 import library.dataAccess.DatabaseConnection;
 import library.dataAccess.Factory;
 import library.dataAccess.ProfileDao;
@@ -21,7 +22,8 @@ public class Main {
         connection.connectDatabase("jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=NetflixStatistix;integratedSecurity=true;");
 
         Factory factory = new Factory(connection);
-        System.out.println(factory.createAccountDao().readAccounts());
+        AccountManager accountManager = new AccountManager(factory);
+        System.out.println(accountManager);
 
 
     }

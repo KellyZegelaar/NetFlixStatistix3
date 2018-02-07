@@ -20,4 +20,17 @@ public class Account {
         profiles.add(profile);
     }
 
+    public String getSubscriberNumber() {
+        return subscriberNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "name='" + name + '\'' +
+                ", profiles=" + profiles +
+                ", address=" + address +
+                ", subscriberNumber='" + subscriberNumber + '\'' +
+                '}';
+    }
 }

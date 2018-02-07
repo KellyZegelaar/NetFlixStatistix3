@@ -1,6 +1,5 @@
 package library.dataAccess;
 
-import library.applicationLogic.ProfileManager;
 import library.domain.Profile;
 
 import java.sql.ResultSet;
