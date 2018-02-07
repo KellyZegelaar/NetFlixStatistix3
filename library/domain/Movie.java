@@ -1,5 +1,8 @@
 package library.domain;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Movie {
     private String id;
     private String title;
@@ -7,6 +10,7 @@ public class Movie {
     private String language;
     private String timeLength;
     private String genre;
+    private HashMap<String, String> timeWatched;
 
     public Movie(String id, String title, String age, String language, String timeLength, String genre) {
         this.id = id;
@@ -15,6 +19,20 @@ public class Movie {
         this.language = language;
         this.timeLength = timeLength;
         this.genre = genre;
+
+        timeWatched = new HashMap<>();
+    }
+
+    public void addWatched(String timeWatched, String profileName){
+        this.timeWatched.put(timeWatched, profileName);
+    }
+
+    public HashMap<String, String> getTimeWatched() {
+        return timeWatched;
+    }
+
+    public String getId() {
+        return id;
     }
 
     @Override

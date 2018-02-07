@@ -24,6 +24,10 @@ public class Account {
         profiles.add(profile);
     }
 
+    public ArrayList<Profile> getProfiles() {
+        return profiles;
+    }
+
     public String getSubscriberNumber() {
         return subscriberNumber;
     }

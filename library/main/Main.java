@@ -5,6 +5,8 @@ import library.applicationLogic.MovieManager;
 import library.applicationLogic.SerieManager;
 import library.dataAccess.DatabaseConnection;
 import library.dataAccess.Factory;
+import library.domain.Account;
+import library.domain.Profile;
 import library.presentation.StatistixUI;
 
 import javax.swing.SwingUtilities;
@@ -23,6 +25,14 @@ public class Main {
         MovieManager movieManager = new MovieManager(factory);
 
         StatistixUI ui = new StatistixUI(accountManager, movieManager, serieManager);
+
+        for (Account a: accountManager.getAccounts()){
+            for (Profile profile: a.getProfiles()){
+                System.out.println(profile);
+            }
+        }
+
+
         SwingUtilities.invokeLater(ui);
 
 
