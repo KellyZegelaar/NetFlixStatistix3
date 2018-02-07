@@ -22,8 +22,7 @@ public class Main {
         SerieManager serieManager = new SerieManager(factory);
         MovieManager movieManager = new MovieManager(factory);
 
-        StatistixUI ui = new StatistixUI(accountManager);
-        System.out.println(movieManager);
+        StatistixUI ui = new StatistixUI(accountManager, movieManager, serieManager);
         SwingUtilities.invokeLater(ui);
 
 

@@ -5,7 +5,10 @@
 package library.presentation;
 
 import library.applicationLogic.AccountManager;
+import library.applicationLogic.MovieManager;
+import library.applicationLogic.SerieManager;
 import library.domain.Account;
+import library.presentation.JPanels.AccountJPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,11 +16,15 @@ import java.awt.event.ActionListener;
 
 public class StatistixUI implements Runnable {
     private AccountManager accountManager;
+    private MovieManager movieManager;
+    private SerieManager serieManager;
     private JFrame frame;
-    private JTextField infoPanel;
+    private JTabbedPane infoPanel;
 
-    public StatistixUI(AccountManager accountManager) {
+    public StatistixUI(AccountManager accountManager, MovieManager movieManager, SerieManager serieManager) {
         this.accountManager = accountManager;
+        this.movieManager = movieManager;
+        this.serieManager = serieManager;
     }
 
     @Override
@@ -37,8 +44,8 @@ public class StatistixUI implements Runnable {
     private void createComponents(Container container){
         container.setLayout(new BorderLayout());
 
-        infoPanel = new JTextField();
-        infoPanel.setEditable(false);
+        infoPanel = new JTabbedPane();
+        infoPanel.addTab("empty", new JPanel());
 
         container.add(createMenuBar(), BorderLayout.NORTH);
         container.add(infoPanel, BorderLayout.CENTER);
@@ -57,10 +64,6 @@ public class StatistixUI implements Runnable {
 
         ButtonGroup options = new ButtonGroup();
 
-//        JRadioButton account1 = new JRadioButton("Account - Kelly");
-//        JRadioButton account2 = new JRadioButton("Account - Ingeborg");
-//        JRadioButton account3 = new JRadioButton("Account - Karel");
-
         JRadioButton movies = new JRadioButton("Show all movies");
         JRadioButton series = new JRadioButton("Show all tv shows");
         JRadioButton statistix = new JRadioButton("Show statistix");
@@ -76,36 +79,22 @@ public class StatistixUI implements Runnable {
             menu.add(account);
         }
 
-//        account1.addActionListener(actionListenerViewMenu);
-//        account2.addActionListener(actionListenerViewMenu);
-//        account3.addActionListener(actionListenerViewMenu);
         movies.addActionListener(actionListenerViewMenu);
         series.addActionListener(actionListenerViewMenu);
         statistix.addActionListener(actionListenerViewMenu);
 
-//        account1.setActionCommand(account1.getText());
-//        account2.setActionCommand(account2.getText());
-//        account3.setActionCommand(account3.getText());
         movies.setActionCommand(movies.getText());
         series.setActionCommand(series.getText());
         statistix.setActionCommand(statistix.getText());
 
-//        options.add(account1);
-//        options.add(account2);
-//        options.add(account3);
         options.add(movies);
         options.add(series);
         options.add(statistix);
 
-//        menu.add(account1);
-//        menu.add(account2);
-//        menu.add(account3);
         menu.addSeparator();
         menu.add(movies);
         menu.add(series);
         menu.add(statistix);
-
-
 
         return menu;
     }
