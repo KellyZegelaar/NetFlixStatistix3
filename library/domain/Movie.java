@@ -16,4 +16,16 @@ public class Movie {
         this.timeLength = timeLength;
         this.genre = genre;
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", age='" + age + '\'' +
+                ", language='" + language + '\'' +
+                ", timeLength='" + timeLength + '\'' +
+                ", genre='" + genre + '\'' +
+                '}';
+    }
 }

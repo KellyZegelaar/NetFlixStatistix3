@@ -17,4 +17,11 @@ public class MovieManager {
     public void readMovies(){
         movies = factory.createMovieDao().readMovies();
     }
+
+    @Override
+    public String toString() {
+        return "MovieManager{" +
+                "movies=" + movies +
+                '}';
+    }
 }

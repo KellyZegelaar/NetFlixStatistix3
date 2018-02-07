@@ -1,6 +1,7 @@
 package library.main;
 
 import library.applicationLogic.AccountManager;
+import library.applicationLogic.MovieManager;
 import library.applicationLogic.SerieManager;
 import library.dataAccess.DatabaseConnection;
 import library.dataAccess.Factory;
@@ -19,9 +20,10 @@ public class Main {
         Factory factory = new Factory(connection);
         AccountManager accountManager = new AccountManager(factory);
         SerieManager serieManager = new SerieManager(factory);
+        MovieManager movieManager = new MovieManager(factory);
 
         StatistixUI ui = new StatistixUI(accountManager);
-        System.out.println(serieManager);
+        System.out.println(movieManager);
         SwingUtilities.invokeLater(ui);
 
 
