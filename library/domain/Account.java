@@ -8,10 +8,16 @@ public class Account {
     private Address address;
     private String subscriberNumber;
 
-    public Account(String name, ArrayList<Profile> profiles, Address address, String subscriberNumber) {
+    public Account(String name, Address address, String subscriberNumber) {
         this.name = name;
-        this.profiles = profiles;
         this.address = address;
         this.subscriberNumber = subscriberNumber;
+
+        profiles = new ArrayList<>();
     }
+
+    public void addProfile(Profile profile) {
+        profiles.add(profile);
+    }
+
 }

@@ -1,6 +1,8 @@
 package library.main;
 
 import library.dataAccess.DatabaseConnection;
+import library.dataAccess.Factory;
+import library.dataAccess.ProfileDao;
 import library.presentation.StatistixUI;
 
 import javax.swing.SwingUtilities;
@@ -18,7 +20,10 @@ public class Main {
         DatabaseConnection connection = new DatabaseConnection();
         connection.connectDatabase("jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=NetflixStatistix;integratedSecurity=true;");
 
-        
+        Factory factory = new Factory(connection);
+        System.out.println(factory.createAccountDao().readAccounts());
+
+
     }
 
 }

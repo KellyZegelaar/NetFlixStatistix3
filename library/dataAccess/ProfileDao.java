@@ -25,7 +25,6 @@ public class ProfileDao {
         } catch (Exception e){
             System.out.println("Database doesn't contain profiles");
         }
-//        ProfileManager profileManager = new ProfileManager(profiles);
         return profiles;
     }
 }
