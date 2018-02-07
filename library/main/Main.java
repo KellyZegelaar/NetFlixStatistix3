@@ -19,7 +19,7 @@ public class Main {
         AccountManager accountManager = new AccountManager(factory);
 
         StatistixUI ui = new StatistixUI(accountManager);
-        System.out.println(accountManager);
+        System.out.println();
         SwingUtilities.invokeLater(ui);
 
 
