@@ -18,4 +18,15 @@ public class Episode {
     public String getSerie() {
         return serie;
     }
+
+    @Override
+    public String toString() {
+        return "Episode{" +
+                "id='" + id + '\'' +
+                ", serie='" + serie + '\'' +
+                ", season='" + season + '\'' +
+                ", title='" + title + '\'' +
+                ", timeLength='" + timeLength + '\'' +
+                '}';
+    }
 }

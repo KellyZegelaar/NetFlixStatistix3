@@ -1,6 +1,7 @@
 package library.main;
 
 import library.applicationLogic.AccountManager;
+import library.applicationLogic.SerieManager;
 import library.dataAccess.DatabaseConnection;
 import library.dataAccess.Factory;
 import library.presentation.StatistixUI;
@@ -17,9 +18,10 @@ public class Main {
 
         Factory factory = new Factory(connection);
         AccountManager accountManager = new AccountManager(factory);
+        SerieManager serieManager = new SerieManager(factory);
 
         StatistixUI ui = new StatistixUI(accountManager);
-        System.out.println();
+        System.out.println(serieManager);
         SwingUtilities.invokeLater(ui);
 
 

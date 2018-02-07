@@ -31,4 +31,16 @@ public class Serie {
     public String getTitle() {
         return title;
     }
+
+    @Override
+    public String toString() {
+        return "Serie{" +
+                "title='" + title + '\'' +
+                ", age='" + age + '\'' +
+                ", language='" + language + '\'' +
+                ", genre='" + genre + '\'' +
+                ", comparableWith='" + comparableWith + '\'' +
+                ", episodes=" + episodes +
+                '}';
+    }
 }
