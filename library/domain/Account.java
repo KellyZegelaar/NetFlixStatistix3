@@ -16,6 +16,10 @@ public class Account {
         profiles = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void addProfile(Profile profile) {
         profiles.add(profile);
     }

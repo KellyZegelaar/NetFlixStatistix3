@@ -4,13 +4,21 @@
 
 package library.presentation;
 
+import library.applicationLogic.AccountManager;
+import library.domain.Account;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class StatistixUI implements Runnable {
+    private AccountManager accountManager;
     private JFrame frame;
     private JTextField infoPanel;
+
+    public StatistixUI(AccountManager accountManager) {
+        this.accountManager = accountManager;
+    }
 
     @Override
     public void run() {
@@ -49,39 +57,49 @@ public class StatistixUI implements Runnable {
 
         ButtonGroup options = new ButtonGroup();
 
-        JRadioButton account1 = new JRadioButton("Account - Kelly");
-        JRadioButton account2 = new JRadioButton("Account - Ingeborg");
-        JRadioButton account3 = new JRadioButton("Account - Karel");
+//        JRadioButton account1 = new JRadioButton("Account - Kelly");
+//        JRadioButton account2 = new JRadioButton("Account - Ingeborg");
+//        JRadioButton account3 = new JRadioButton("Account - Karel");
 
         JRadioButton movies = new JRadioButton("Show all movies");
         JRadioButton series = new JRadioButton("Show all tv shows");
         JRadioButton statistix = new JRadioButton("Show statistix");
 
-        ActionListenerViewMenu actionListenerViewMenu = new ActionListenerViewMenu(options,infoPanel);
-        account1.addActionListener(actionListenerViewMenu);
-        account2.addActionListener(actionListenerViewMenu);
-        account3.addActionListener(actionListenerViewMenu);
+        ActionListenerViewMenu actionListenerViewMenu = new ActionListenerViewMenu(options,infoPanel, accountManager);
+
+        for(Account a: accountManager.getAccounts()){
+            String label = "Account - " + a.getName();
+            JRadioButton account = new JRadioButton(label);
+            account.addActionListener(actionListenerViewMenu);
+            account.setActionCommand(label);
+            options.add(account);
+            menu.add(account);
+        }
+
+//        account1.addActionListener(actionListenerViewMenu);
+//        account2.addActionListener(actionListenerViewMenu);
+//        account3.addActionListener(actionListenerViewMenu);
         movies.addActionListener(actionListenerViewMenu);
         series.addActionListener(actionListenerViewMenu);
         statistix.addActionListener(actionListenerViewMenu);
 
-        account1.setActionCommand(account1.getText());
-        account2.setActionCommand(account2.getText());
-        account3.setActionCommand(account3.getText());
+//        account1.setActionCommand(account1.getText());
+//        account2.setActionCommand(account2.getText());
+//        account3.setActionCommand(account3.getText());
         movies.setActionCommand(movies.getText());
         series.setActionCommand(series.getText());
         statistix.setActionCommand(statistix.getText());
 
-        options.add(account1);
-        options.add(account2);
-        options.add(account3);
+//        options.add(account1);
+//        options.add(account2);
+//        options.add(account3);
         options.add(movies);
         options.add(series);
         options.add(statistix);
 
-        menu.add(account1);
-        menu.add(account2);
-        menu.add(account3);
+//        menu.add(account1);
+//        menu.add(account2);
+//        menu.add(account3);
         menu.addSeparator();
         menu.add(movies);
         menu.add(series);

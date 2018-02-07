@@ -16,11 +16,15 @@ public class AccountManager {
         addProfiles();
     }
 
-    public void readAccounts(){
+    public ArrayList<Account> getAccounts(){
+        return accounts;
+    }
+
+    private void readAccounts(){
         accounts = factory.createAccountDao().readAccounts();
     }
 
-    public void addProfiles() {
+    private void addProfiles() {
         ArrayList<Profile> profiles = factory.createProfileDao().readProfiles();
 
         for (Account a: accounts) {
