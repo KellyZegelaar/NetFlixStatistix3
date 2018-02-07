@@ -16,6 +16,10 @@ public class SerieManager {
         addEpisodes();
     }
 
+    public ArrayList<Serie> getSeries(){
+        return series;
+    }
+
     private void readSeries(){
         series = factory.createSerieDao().readSerie();
     }
