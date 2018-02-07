@@ -1,7 +1,6 @@
 package library.dataAccess;
 
 import library.dataAccess.daoFiles.*;
-import library.domain.Episode;
 
 public class Factory {
     private DatabaseConnection connection;
@@ -20,9 +19,9 @@ public class Factory {
         return accountDaoInf;
     }
 
-    public SerieDao createSerieDao(){
-        SerieDao serieDao = new SerieDao(connection);
-        return serieDao;
+    public SerieDaoInf createSerieDao(){
+        SerieDaoInf serieDaoInf = new SerieDao(connection);
+        return serieDaoInf;
     }
 
     public EpisodeDaoInf createEpisodeDao(){

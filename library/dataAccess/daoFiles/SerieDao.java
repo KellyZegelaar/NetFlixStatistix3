@@ -8,13 +8,14 @@ import library.domain.Serie;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class SerieDao {
+public class SerieDao implements SerieDaoInf {
     private DatabaseConnection connection;
 
     public SerieDao(DatabaseConnection connection) {
         this.connection = connection;
     }
 
+    @Override
     public ArrayList<Serie> readSerie(){
         ArrayList<Serie> series = new ArrayList<>();
 //        ArrayList<Episode> episodes = readEpisodes();
