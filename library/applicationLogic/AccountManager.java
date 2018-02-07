@@ -42,15 +42,48 @@ public class AccountManager {
     private void addMovies(){
         movies = factory.createMovieDao().readWatchedMovies();
 
-        for (Account a: accounts){
-            for(Profile p: a.getProfiles()){
-                for (Movie m : movies){
-                    if (m.getTimeWatched().containsValue(p.getProfileName())){
+//        for (Account a: accounts){
+//            for(Profile p: a.getProfiles()){
+//                for (Movie m : movies){
+//                    for (String key: m.getTimeWatched().keySet()){
+//                        System.out.println(key + m.getTimeWatched().get(key));
+//                        System.out.println("========================================");
+//                        if (p.getProfileName().equals(key)){
+//                            p.addWatchedMovie(m);
+//                        }
+//                    }
+//                }
+//            }
+//        }
+
+//        for (Account a: accounts){
+//            for (Profile p: a.getProfiles()){
+//                for(Movie m : movies){
+//                    for (String key : m.getTimeWatched().keySet()){
+//                        p.addWatchedMovie(m);
+//                    }
+//                }
+//            }
+//        }
+        for (Movie m: movies){
+            for (Account a: accounts){
+                for (Profile p: a.getProfiles()){
+                    if(m.getTimeWatched().containsKey(p.getProfileName())){
                         p.addWatchedMovie(m);
                     }
                 }
             }
         }
+
+//        for(Movie m : movies){
+//            for (String key : m.getTimeWatched().keySet()){
+//                System.out.println(key + "" + m);
+//            }
+//        }
+
+//        for (Movie m: movies){
+//            System.out.println(m);
+//        }
     }
 
     public ArrayList<Movie> getWatchedMovies(){

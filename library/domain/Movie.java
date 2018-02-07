@@ -23,8 +23,28 @@ public class Movie {
         timeWatched = new HashMap<>();
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getTimeLength() {
+        return timeLength;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
     public void addWatched(String timeWatched, String profileName){
-        this.timeWatched.put(timeWatched, profileName);
+        this.timeWatched.put(profileName, timeWatched);
     }
 
     public HashMap<String, String> getTimeWatched() {
@@ -44,6 +64,7 @@ public class Movie {
                 ", language='" + language + '\'' +
                 ", timeLength='" + timeLength + '\'' +
                 ", genre='" + genre + '\'' +
+                ", timeWatched=" + timeWatched +
                 '}';
     }
 }

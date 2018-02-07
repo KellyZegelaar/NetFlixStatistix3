@@ -20,6 +20,10 @@ public class Profile {
         watchedMovies.add(movie);
     }
 
+    public ArrayList<Movie> getWatchedMovies() {
+        return watchedMovies;
+    }
+
     public String getSubscriberNumber() {
         return subscriberNumber;
     }

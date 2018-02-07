@@ -1,6 +1,7 @@
 package library.presentation;
 
 import library.applicationLogic.AccountManager;
+import library.applicationLogic.MovieManager;
 import library.domain.Account;
 import library.presentation.JPanels.AccountJPanel;
 
@@ -26,7 +27,7 @@ public class ActionListenerViewMenu implements ActionListener {
         for (Account a: accountManager.getAccounts()){
             String label = "Account - " + a.getName();
             if (label.equals(choice)){
-                AccountJPanel accountJPanel = new AccountJPanel();
+                AccountJPanel accountJPanel = new AccountJPanel(accountManager, a);
                 infoPanel.removeAll();
                 infoPanel.addTab("Account",accountJPanel.createAccountPanel());
             }

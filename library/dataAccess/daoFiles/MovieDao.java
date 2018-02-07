@@ -23,7 +23,7 @@ public class MovieDao implements MovieDaoInf {
                 movies.add(new Movie(rs.getString("Id"),rs.getString("Titel"),rs.getString("Leeftijdsindicatie"), rs.getString("Taal"), rs.getString("Tijdsduur"), rs.getString("Genre")));
             }
         } catch(Exception e) {
-            System.out.println(e);
+            System.out.println("The database doesn't contain movies");
         }
         return movies;
     }
@@ -39,7 +39,10 @@ public class MovieDao implements MovieDaoInf {
                 for(Movie m: movies){
                     if(rs.getString("Id").equals(m.getId())){
                         m.addWatched(rs.getString("PercentageGezien"), rs.getString("Profielnaam"));
-                        watchedMovies.add(m);
+
+                        if (!watchedMovies.contains(m)){
+                            watchedMovies.add(m);
+                        }
                     }
                 }
             }
