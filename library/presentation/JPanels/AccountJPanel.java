@@ -18,12 +18,10 @@ public class AccountJPanel extends JPanel {
     }
 
     public JPanel createAccountPanel() {
-//         MoviesJPanel moviesJPanel = new MoviesJPanel(accountManager, account);
         JPanel accountPanel = new JPanel();
         accountPanel.setLayout(new BorderLayout());
 
         overview = new JPanel();
-        overview.add(new JPanel());
 
         accountPanel.add(createButtonGroup(), BorderLayout.NORTH);
         accountPanel.add(overview, BorderLayout.CENTER);
@@ -48,7 +46,6 @@ public class AccountJPanel extends JPanel {
 
         group.add(movies);
         group.add(series);
-
 
         buttongroup.add(movies);
         buttongroup.add(series);

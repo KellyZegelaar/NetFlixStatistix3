@@ -23,12 +23,14 @@ public class ActionListenerOverviewMovieVsSerie implements ActionListener {
 
         switch (choice){
             case "movie":
-                System.out.println("movie");
                 overview.removeAll();
                 overview.add(moviesJPanel.createOverview());
+                overview.revalidate();
                 break;
             case "serie":
-                System.out.println("serie");
+                overview.removeAll();
+                overview.add(new JPanel());
+                overview.revalidate();
                 break;
         }
     }
