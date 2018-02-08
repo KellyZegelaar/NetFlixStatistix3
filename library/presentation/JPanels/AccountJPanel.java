@@ -1,14 +1,10 @@
 package library.presentation.JPanels;
 
 import library.applicationLogic.AccountManager;
-import library.applicationLogic.MovieManager;
 import library.domain.Account;
-import library.domain.Movie;
-import library.domain.Profile;
+import library.presentation.ActionListenerOverviewMovieVsSerie;
 
-import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
 public class AccountJPanel extends JPanel {
@@ -26,10 +22,6 @@ public class AccountJPanel extends JPanel {
         JPanel accountPanel = new JPanel();
         accountPanel.setLayout(new BorderLayout());
 
-
-
-
-
         accountPanel.add(createButtonGroup(), BorderLayout.NORTH);
         accountPanel.add(moviesJPanel.createOverview(), BorderLayout.CENTER);
 
@@ -40,12 +32,20 @@ public class AccountJPanel extends JPanel {
         JPanel buttongroup = new JPanel();
 
         ButtonGroup group = new ButtonGroup();
+        ActionListenerOverviewMovieVsSerie actionListenerOverviewMovieVsSerie = new ActionListenerOverviewMovieVsSerie(group);
 
         JRadioButton movies = new JRadioButton("Movie overview");
         JRadioButton series = new JRadioButton("Serie overview");
 
+        movies.addActionListener(actionListenerOverviewMovieVsSerie);
+        series.addActionListener(actionListenerOverviewMovieVsSerie);
+
+        movies.setActionCommand("movie");
+        series.setActionCommand("serie");
+
         group.add(movies);
         group.add(series);
+
 
         buttongroup.add(movies);
         buttongroup.add(series);
