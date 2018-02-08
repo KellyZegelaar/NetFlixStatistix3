@@ -6,6 +6,7 @@ import library.domain.Account;
 import library.domain.Movie;
 import library.domain.Profile;
 
+import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -13,38 +14,44 @@ import java.awt.*;
 public class AccountJPanel extends JPanel {
     private AccountManager accountManager;
     private Account account;
+    private MoviesJPanel moviesJPanel;
 
     public AccountJPanel(AccountManager accountManager, Account account) {
         this.accountManager = accountManager;
         this.account = account;
-        createAccountPanel();
     }
 
     public JPanel createAccountPanel() {
+        moviesJPanel = new MoviesJPanel(accountManager, account);
         JPanel accountPanel = new JPanel();
         accountPanel.setLayout(new BorderLayout());
 
-        accountPanel.add(new JLabel("Movie Overview - " + account.getProfiles().get(0).getProfileName()), BorderLayout.NORTH);
-        accountPanel.add(new JScrollPane(createMovieOverview(account.getProfiles().get(0))), BorderLayout.CENTER);
+
+
+
+
+        accountPanel.add(createButtonGroup(), BorderLayout.NORTH);
+        accountPanel.add(moviesJPanel.createOverview(), BorderLayout.CENTER);
+
         return accountPanel;
     }
 
-    private JTable createMovieOverview(Profile profile){
-        String[] columnNames = {"Id",
-                "Titel",
-                "Leeftijdsindicatie",
-                "Taal",
-                "Genre",
-                "Tijdbekeken"};
+    public JPanel createButtonGroup(){
+        JPanel buttongroup = new JPanel();
 
-        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
-        JTable table = new JTable(tableModel);
+        ButtonGroup group = new ButtonGroup();
 
-        for (Movie m: profile.getWatchedMovies()){
-            Object [] data = {m.getId(), m.getTitle(), m.getAge(), m.getLanguage(), m.getGenre(), m.getTimeWatched().get(profile.getProfileName())};
-            tableModel.addRow(data);
-        }
+        JRadioButton movies = new JRadioButton("Movie overview");
+        JRadioButton series = new JRadioButton("Serie overview");
 
-        return table;
+        group.add(movies);
+        group.add(series);
+
+        buttongroup.add(movies);
+        buttongroup.add(series);
+
+        return buttongroup;
     }
+
+
 }
