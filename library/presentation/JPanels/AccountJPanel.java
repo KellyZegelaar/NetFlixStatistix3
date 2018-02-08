@@ -10,7 +10,7 @@ import java.awt.*;
 public class AccountJPanel extends JPanel {
     private AccountManager accountManager;
     private Account account;
-    private MoviesJPanel moviesJPanel;
+    private JPanel overview;
 
     public AccountJPanel(AccountManager accountManager, Account account) {
         this.accountManager = accountManager;
@@ -18,12 +18,15 @@ public class AccountJPanel extends JPanel {
     }
 
     public JPanel createAccountPanel() {
-        moviesJPanel = new MoviesJPanel(accountManager, account);
+//         MoviesJPanel moviesJPanel = new MoviesJPanel(accountManager, account);
         JPanel accountPanel = new JPanel();
         accountPanel.setLayout(new BorderLayout());
 
+        overview = new JPanel();
+        overview.add(new JPanel());
+
         accountPanel.add(createButtonGroup(), BorderLayout.NORTH);
-        accountPanel.add(moviesJPanel.createOverview(), BorderLayout.CENTER);
+        accountPanel.add(overview, BorderLayout.CENTER);
 
         return accountPanel;
     }
@@ -32,7 +35,7 @@ public class AccountJPanel extends JPanel {
         JPanel buttongroup = new JPanel();
 
         ButtonGroup group = new ButtonGroup();
-        ActionListenerOverviewMovieVsSerie actionListenerOverviewMovieVsSerie = new ActionListenerOverviewMovieVsSerie(group);
+        ActionListenerOverviewMovieVsSerie actionListenerOverviewMovieVsSerie = new ActionListenerOverviewMovieVsSerie(group, overview, new MoviesJPanel(accountManager, account));
 
         JRadioButton movies = new JRadioButton("Movie overview");
         JRadioButton series = new JRadioButton("Serie overview");
