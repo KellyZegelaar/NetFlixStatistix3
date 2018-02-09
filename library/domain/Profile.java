@@ -7,6 +7,7 @@ public class Profile {
     private String dateOfBirth;
     private String subscriberNumber;
     private ArrayList<Movie> watchedMovies;
+    private ArrayList<Episode> watchedEpisodes;
 
     public Profile(String profileName, String dateOfBirth, String subscriberNumber) {
         this.profileName = profileName;
@@ -14,6 +15,7 @@ public class Profile {
         this.subscriberNumber = subscriberNumber;
 
         watchedMovies = new ArrayList<>();
+        watchedEpisodes = new ArrayList<>();
     }
 
     public void addWatchedMovie(Movie movie){
@@ -22,6 +24,14 @@ public class Profile {
 
     public ArrayList<Movie> getWatchedMovies() {
         return watchedMovies;
+    }
+
+    public void addWatchedEpisode(Episode episode){
+        watchedEpisodes.add(episode);
+    }
+
+    public ArrayList<Episode> getWatchedEpisodes() {
+        return watchedEpisodes;
     }
 
     public String getSubscriberNumber() {

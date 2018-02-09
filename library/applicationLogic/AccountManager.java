@@ -1,9 +1,7 @@
 package library.applicationLogic;
 
 import library.dataAccess.Factory;
-import library.domain.Account;
-import library.domain.Movie;
-import library.domain.Profile;
+import library.domain.*;
 
 import java.util.ArrayList;
 
@@ -11,12 +9,14 @@ public class AccountManager {
     private Factory factory;
     private ArrayList<Account> accounts;
     private ArrayList<Movie> movies;
+    private ArrayList<Episode> episodes;
 
     public AccountManager(Factory factory) {
         this.factory = factory;
         readAccounts();
         addProfiles();
         addMovies();
+        addEpisodes();
     }
 
     public ArrayList<Account> getAccounts(){
@@ -42,29 +42,6 @@ public class AccountManager {
     private void addMovies(){
         movies = factory.createMovieDao().readWatchedMovies();
 
-//        for (Account a: accounts){
-//            for(Profile p: a.getProfiles()){
-//                for (Movie m : movies){
-//                    for (String key: m.getTimeWatched().keySet()){
-//                        System.out.println(key + m.getTimeWatched().get(key));
-//                        System.out.println("========================================");
-//                        if (p.getProfileName().equals(key)){
-//                            p.addWatchedMovie(m);
-//                        }
-//                    }
-//                }
-//            }
-//        }
-
-//        for (Account a: accounts){
-//            for (Profile p: a.getProfiles()){
-//                for(Movie m : movies){
-//                    for (String key : m.getTimeWatched().keySet()){
-//                        p.addWatchedMovie(m);
-//                    }
-//                }
-//            }
-//        }
         for (Movie m: movies){
             for (Account a: accounts){
                 for (Profile p: a.getProfiles()){
@@ -74,20 +51,28 @@ public class AccountManager {
                 }
             }
         }
+    }
 
-//        for(Movie m : movies){
-//            for (String key : m.getTimeWatched().keySet()){
-//                System.out.println(key + "" + m);
-//            }
-//        }
+    private void addEpisodes(){
+        episodes = factory.createEpisodeDao().readWatchedEpisodes();
 
-//        for (Movie m: movies){
-//            System.out.println(m);
-//        }
+        for (Episode e: episodes){
+            for (Account a: accounts){
+                for (Profile p: a.getProfiles()){
+                    if(e.getTimeWatched().containsKey(p.getProfileName())){
+                        p.addWatchedEpisode(e);
+                    }
+                }
+            }
+        }
     }
 
     public ArrayList<Movie> getWatchedMovies(){
         return movies;
+    }
+
+    public ArrayList<Episode> getWatchedEpisodes() {
+        return episodes;
     }
 
     @Override

@@ -26,4 +26,26 @@ public class EpisodeDao implements EpisodeDaoInf {
         }
         return episodes;
     }
+
+    public ArrayList<Episode> readWatchedEpisodes(){
+        ArrayList<Episode> episodes = readEpisodes();
+        ArrayList<Episode> watchedEpisodes = new ArrayList<>();
+        ResultSet rs = connection.executeSql("SELECT * FROM BekekenAflevering");
+        try{
+            while(rs.next()){
+                for (Episode e: episodes){
+                    if(rs.getString("Id").equals(e.getId())){
+                        e.addWatched(rs.getString("PercentageGezien"), rs.getString("Profielnaam"));
+                        if (!watchedEpisodes.contains(e)){
+                            watchedEpisodes.add(e);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Database doesn't contain watched episodes");
+        }
+
+        return watchedEpisodes;
+    }
 }

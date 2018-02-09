@@ -32,6 +32,7 @@ public class AccountJPanel extends JPanel {
 
     public JPanel createButtonGroup(){
         MoviesJPanel moviesJPanel = new MoviesJPanel(accountManager, account);
+        SeriesJPanel seriesJPanel = new SeriesJPanel(accountManager, account);
         JPanel buttongroup = new JPanel();
 
         ButtonGroup group = new ButtonGroup();
@@ -47,7 +48,7 @@ public class AccountJPanel extends JPanel {
 
         series.addActionListener( event -> {
             overview.removeAll();
-            overview.addTab("Serie overview: ", new JPanel());
+            overview.addTab("Serie overview: ", seriesJPanel.createOverview());
         });
 
 //        movies.addActionListener(actionListenerOverviewMovieVsSerie);
