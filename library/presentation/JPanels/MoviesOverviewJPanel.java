@@ -9,11 +9,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class MoviesJPanel extends JPanel {
+public class MoviesOverviewJPanel extends JPanel {
     private AccountManager accountManager;
     private Account account;
 
-    public MoviesJPanel(AccountManager accountManager, Account account) {
+    public MoviesOverviewJPanel(AccountManager accountManager, Account account) {
         this.accountManager = accountManager;
         this.account = account;
     }

@@ -31,24 +31,24 @@ public class AccountJPanel extends JPanel {
     }
 
     public JPanel createButtonGroup(){
-        MoviesJPanel moviesJPanel = new MoviesJPanel(accountManager, account);
-        SeriesJPanel seriesJPanel = new SeriesJPanel(accountManager, account);
+        MoviesOverviewJPanel moviesOverviewJPanel = new MoviesOverviewJPanel(accountManager, account);
+        SeriesOverviewJPanel seriesOverviewJPanel = new SeriesOverviewJPanel(accountManager, account);
         JPanel buttongroup = new JPanel();
 
         ButtonGroup group = new ButtonGroup();
-//        ActionListenerOverviewMovieVsSerie actionListenerOverviewMovieVsSerie = new ActionListenerOverviewMovieVsSerie(group, overview, new MoviesJPanel(accountManager, account));
+//        ActionListenerOverviewMovieVsSerie actionListenerOverviewMovieVsSerie = new ActionListenerOverviewMovieVsSerie(group, overview, new MoviesOverviewJPanel(accountManager, account));
 
         JButton movies = new JButton("Movie overview");
         JButton series = new JButton("Serie overview");
 
         movies.addActionListener( event -> {
             overview.removeAll();
-            overview.addTab("Movie Overview: ", moviesJPanel.createOverview());
+            overview.addTab("Movie Overview: ", moviesOverviewJPanel.createOverview());
         });
 
         series.addActionListener( event -> {
             overview.removeAll();
-            overview.addTab("Serie overview: ", seriesJPanel.createOverview());
+            overview.addTab("Serie overview: ", seriesOverviewJPanel.createOverview());
         });
 
 //        movies.addActionListener(actionListenerOverviewMovieVsSerie);

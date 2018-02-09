@@ -10,11 +10,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class SeriesJPanel {
+public class SeriesOverviewJPanel {
     private AccountManager accountManager;
     private Account account;
 
-    public SeriesJPanel(AccountManager accountManager, Account account) {
+    public SeriesOverviewJPanel(AccountManager accountManager, Account account) {
         this.accountManager = accountManager;
         this.account = account;
     }
