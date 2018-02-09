@@ -66,7 +66,7 @@ public class StatistixUI implements Runnable {
         JRadioButton series = new JRadioButton("Show all tv shows");
         JRadioButton statistix = new JRadioButton("Show statistix");
 
-        ActionListenerViewMenu actionListenerViewMenu = new ActionListenerViewMenu(options,infoPanel, accountManager, movieManager);
+        ActionListenerViewMenu actionListenerViewMenu = new ActionListenerViewMenu(options,infoPanel, accountManager, movieManager, serieManager);
 
         for(Account a: accountManager.getAccounts()){
             String label = "Account - " + a.getName();

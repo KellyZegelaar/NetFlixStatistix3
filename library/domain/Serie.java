@@ -20,6 +20,22 @@ public class Serie {
         episodes = new ArrayList<>();
     }
 
+    public String getAge() {
+        return age;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getComparableWith() {
+        return comparableWith;
+    }
+
     public void addEpisode(Episode episode){
         episodes.add(episode);
     }
