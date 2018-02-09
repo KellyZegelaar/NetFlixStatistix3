@@ -26,13 +26,6 @@ public class Main {
 
         StatistixUI ui = new StatistixUI(accountManager, movieManager, serieManager);
 
-        for (Account a: accountManager.getAccounts()){
-            for (Profile profile: a.getProfiles()){
-                System.out.println(profile);
-            }
-        }
-
-
         SwingUtilities.invokeLater(ui);
 
 

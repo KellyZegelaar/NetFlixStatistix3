@@ -2,7 +2,6 @@ package library.presentation.JPanels;
 
 import library.applicationLogic.AccountManager;
 import library.domain.Account;
-import library.presentation.ActionListenerOverviewMovieVsSerie;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +9,8 @@ import java.awt.*;
 public class AccountJPanel extends JPanel {
     private AccountManager accountManager;
     private Account account;
-    private JPanel overview;
+    private JPanel accountPanel;
+    private JTabbedPane overview;
 
     public AccountJPanel(AccountManager accountManager, Account account) {
         this.accountManager = accountManager;
@@ -18,10 +18,11 @@ public class AccountJPanel extends JPanel {
     }
 
     public JPanel createAccountPanel() {
-        JPanel accountPanel = new JPanel();
+        accountPanel = new JPanel();
         accountPanel.setLayout(new BorderLayout());
 
-        overview = new JPanel();
+        overview = new JTabbedPane();
+        overview.addTab("", new JPanel());
 
         accountPanel.add(createButtonGroup(), BorderLayout.NORTH);
         accountPanel.add(overview, BorderLayout.CENTER);
@@ -30,19 +31,30 @@ public class AccountJPanel extends JPanel {
     }
 
     public JPanel createButtonGroup(){
+        MoviesJPanel moviesJPanel = new MoviesJPanel(accountManager, account);
         JPanel buttongroup = new JPanel();
 
         ButtonGroup group = new ButtonGroup();
-        ActionListenerOverviewMovieVsSerie actionListenerOverviewMovieVsSerie = new ActionListenerOverviewMovieVsSerie(group, overview, new MoviesJPanel(accountManager, account));
+//        ActionListenerOverviewMovieVsSerie actionListenerOverviewMovieVsSerie = new ActionListenerOverviewMovieVsSerie(group, overview, new MoviesJPanel(accountManager, account));
 
-        JRadioButton movies = new JRadioButton("Movie overview");
-        JRadioButton series = new JRadioButton("Serie overview");
+        JButton movies = new JButton("Movie overview");
+        JButton series = new JButton("Serie overview");
 
-        movies.addActionListener(actionListenerOverviewMovieVsSerie);
-        series.addActionListener(actionListenerOverviewMovieVsSerie);
+        movies.addActionListener( event -> {
+            overview.removeAll();
+            overview.addTab("Movie Overview: ", moviesJPanel.createOverview());
+        });
 
-        movies.setActionCommand("movie");
-        series.setActionCommand("serie");
+        series.addActionListener( event -> {
+            overview.removeAll();
+            overview.addTab("Serie overview: ", new JPanel());
+        });
+
+//        movies.addActionListener(actionListenerOverviewMovieVsSerie);
+//        series.addActionListener(actionListenerOverviewMovieVsSerie);
+
+//        movies.setActionCommand("movie");
+//        series.setActionCommand("serie");
 
         group.add(movies);
         group.add(series);
