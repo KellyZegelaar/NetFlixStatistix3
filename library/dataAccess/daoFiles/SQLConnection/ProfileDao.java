@@ -1,6 +1,6 @@
-package library.dataAccess.daoFiles;
+package library.dataAccess.daoFiles.SQLConnection;
 
-import library.dataAccess.DatabaseConnection;
+import library.dataAccess.daoFiles.ProfileDaoInf;
 import library.domain.Profile;
 
 import java.sql.ResultSet;

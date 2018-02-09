@@ -1,6 +1,6 @@
-package library.dataAccess.daoFiles;
+package library.dataAccess.daoFiles.SQLConnection;
 
-import library.dataAccess.DatabaseConnection;
+import library.dataAccess.daoFiles.EpisodeDaoInf;
 import library.domain.Episode;
 
 import java.sql.ResultSet;

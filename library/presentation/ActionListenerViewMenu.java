@@ -23,7 +23,6 @@ public class ActionListenerViewMenu implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String choice = group.getSelection().getActionCommand();
-        System.out.println(choice);
 
         for (Account a: accountManager.getAccounts()){
             String label = "Account - " + a.getName();

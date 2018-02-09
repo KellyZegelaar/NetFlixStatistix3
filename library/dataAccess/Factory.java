@@ -1,6 +1,7 @@
 package library.dataAccess;
 
 import library.dataAccess.daoFiles.*;
+import library.dataAccess.daoFiles.SQLConnection.*;
 
 public class Factory {
     private DatabaseConnection connection;

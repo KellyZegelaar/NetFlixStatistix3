@@ -1,7 +1,6 @@
-package library.dataAccess.daoFiles;
+package library.dataAccess.daoFiles.SQLConnection;
 
-import library.dataAccess.DatabaseConnection;
-import library.domain.Episode;
+import library.dataAccess.daoFiles.SerieDaoInf;
 import library.domain.Serie;
 
 

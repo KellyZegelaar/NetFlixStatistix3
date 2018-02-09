@@ -1,11 +1,10 @@
-package library.dataAccess.daoFiles;
+package library.dataAccess.daoFiles.SQLConnection;
 
-import library.dataAccess.DatabaseConnection;
+import library.dataAccess.daoFiles.MovieDaoInf;
 import library.domain.Movie;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MovieDao implements MovieDaoInf {
     private DatabaseConnection connection;

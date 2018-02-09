@@ -1,4 +1,4 @@
-package library.dataAccess;
+package library.dataAccess.daoFiles.SQLConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -3,10 +3,8 @@ package library.main;
 import library.applicationLogic.AccountManager;
 import library.applicationLogic.MovieManager;
 import library.applicationLogic.SerieManager;
-import library.dataAccess.DatabaseConnection;
+import library.dataAccess.daoFiles.SQLConnection.DatabaseConnection;
 import library.dataAccess.Factory;
-import library.domain.Account;
-import library.domain.Profile;
 import library.presentation.StatistixUI;
 
 import javax.swing.SwingUtilities;
