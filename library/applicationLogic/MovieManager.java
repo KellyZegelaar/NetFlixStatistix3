@@ -18,6 +18,10 @@ public class MovieManager {
         movies = factory.createMovieDao().readMovies();
     }
 
+    public ArrayList<Movie> getMovies() {
+        return movies;
+    }
+
     @Override
     public String toString() {
         return "MovieManager{" +

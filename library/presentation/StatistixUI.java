@@ -8,11 +8,9 @@ import library.applicationLogic.AccountManager;
 import library.applicationLogic.MovieManager;
 import library.applicationLogic.SerieManager;
 import library.domain.Account;
-import library.presentation.JPanels.AccountJPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class StatistixUI implements Runnable {
     private AccountManager accountManager;
@@ -68,7 +66,7 @@ public class StatistixUI implements Runnable {
         JRadioButton series = new JRadioButton("Show all tv shows");
         JRadioButton statistix = new JRadioButton("Show statistix");
 
-        ActionListenerViewMenu actionListenerViewMenu = new ActionListenerViewMenu(options,infoPanel, accountManager);
+        ActionListenerViewMenu actionListenerViewMenu = new ActionListenerViewMenu(options,infoPanel, accountManager, movieManager);
 
         for(Account a: accountManager.getAccounts()){
             String label = "Account - " + a.getName();
